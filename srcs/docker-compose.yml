@@ -1,0 +1,38 @@
+version: '3.8'
+services:
+  backend:
+    build:
+      context: ./back
+      dockerfile: Dockerfile
+    volumes:
+      - ./back:/app
+    ports:
+      - 3000:3000
+    environment:
+      - DATABASE_URL=postgres://user:password@db:5432/mydb
+    depends_on:
+      - db
+
+  frontend:
+    build:
+      context: ./front
+      dockerfile: Dockerfile
+    volumes:
+      - ./front:/app
+    ports:
+      - 4200:4200
+    depends_on:
+      - backend
+
+  db:
+    image: postgres:latest
+    restart: always
+    environment:
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: mydb
+    volumes:
+      - postgres_data:/var/lib/postgresql/data/
+
+volumes:
+  postgres_data:
