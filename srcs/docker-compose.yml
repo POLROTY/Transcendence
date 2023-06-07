@@ -1,38 +1,60 @@
 version: '3.8'
+
 services:
-  backend:
+
+  nest:
+    container_name: nest
     build:
-      context: ./back
+      context: requirements/nest
       dockerfile: Dockerfile
     volumes:
-      - ./back:/app
+      - back:/app
     ports:
       - 3000:3000
-    environment:
-      - DATABASE_URL=postgres://user:password@db:5432/mydb
+      - 5555:5555
+    env_file: .env
+    networks:
+      - inception
     depends_on:
-      - db
+      - postgresql
 
-  frontend:
+  front:
+    container_name: front
     build:
-      context: ./front
-      dockerfile: Dockerfile
-    volumes:
-      - ./front:/app
+      context: requirements/front
     ports:
-      - 4200:4200
-    depends_on:
-      - backend
-
-  db:
-    image: postgres:latest
-    restart: always
-    environment:
-      POSTGRES_USER: user
-      POSTGRES_PASSWORD: password
-      POSTGRES_DB: mydb
+      - "3002:5173"
     volumes:
-      - postgres_data:/var/lib/postgresql/data/
+      - front:/app
+    networks:
+      - inception
+    env_file: .env
+    depends_on:
+      - nest
+
+  postgresql:
+    image: postgres:latest
+    container_name: postgredb
+    volumes:
+      - db-data:/var/lib/postgresql/data
+    networks:
+      - inception
+    env_file: .env
 
 volumes:
-  postgres_data:
+  db-data:
+  back:
+      driver: local
+      driver_opts:
+        o: bind
+        type: none
+        device: "$PWD/srcs/requirements/nest/srcs"
+  front:
+      driver: local
+      driver_opts:
+        o: bind
+        type: none
+        device: "$PWD/srcs/requirements/front/srcs"
+networks:
+  inception:
+    driver: bridge
