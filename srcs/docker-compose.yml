@@ -23,7 +23,7 @@ services:
     build:
       context: requirements/frontend
     ports:
-      - "3002:5173"
+      - "4200:4200"
     volumes:
       - front:/app
     networks:

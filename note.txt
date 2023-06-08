@@ -2,14 +2,8 @@ Mettre a jour npm et yarn avec
 	- sudo npm install -g npm@latest
 	- sudo npm install -g yarn@latest
 
-Adress du server http :
-faire un docker logs front
 
 
-Adress ip de postgres :
-	192.168.96.2 a verifer
-
-	//   "start:prod": "node dist/main",
 
 
 COMMANDE POSTGRES --------------------------------------------------------------------
