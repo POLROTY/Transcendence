@@ -3,9 +3,9 @@ version: '3.8'
 services:
 
   nest:
-    container_name: nest
+    container_name: backend
     build:
-      context: requirements/nest
+      context: requirements/backend
       dockerfile: Dockerfile
     volumes:
       - back:/app
@@ -21,7 +21,7 @@ services:
   front:
     container_name: front
     build:
-      context: requirements/front
+      context: requirements/frontend
     ports:
       - "3002:5173"
     volumes:
@@ -48,13 +48,13 @@ volumes:
       driver_opts:
         o: bind
         type: none
-        device: "$PWD/srcs/requirements/nest/srcs"
+        device: "$PWD/srcs/requirements/backend"
   front:
       driver: local
       driver_opts:
         o: bind
         type: none
-        device: "$PWD/srcs/requirements/front/srcs"
+        device: "$PWD/srcs/requirements/frontend"
 networks:
   inception:
     driver: bridge
