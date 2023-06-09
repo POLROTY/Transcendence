@@ -6,7 +6,7 @@
 #    By: aptive <aptive@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/06/05 15:17:59 by aptive            #+#    #+#              #
-#    Updated: 2023/06/08 19:31:03 by aptive           ###   ########.fr        #
+#    Updated: 2023/06/09 02:29:33 by aptive           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,7 +28,7 @@ fclean: clean
 	@docker volume rm srcs_front srcs_db-data srcs_back
 	docker volume prune -f
 	docker image prune -f -a
-	@docker rmi -f s srcs-front srcs_back
+	@docker rmi -f srcs-front srcs-nest postgres
 
 
 execDB:
