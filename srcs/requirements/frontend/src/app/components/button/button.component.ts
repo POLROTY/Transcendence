@@ -11,4 +11,8 @@ export class ButtonComponent {
   @Input() text!:   string;
   @Input() color!:  string;
 
+  Hover(over: boolean) {
+    this.color = over ? 'white' : '#FFDE56';
+  }
+
 }

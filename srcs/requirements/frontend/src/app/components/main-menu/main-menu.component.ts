@@ -9,7 +9,7 @@ import { Subscription } from 'rxjs';
 })
 export class MainMenuComponent implements OnInit {
 
-  isLogged: boolean = false;
+  isLogged: boolean = true;
   subscription!: Subscription;
 
   constructor(private logService: LogService) {
