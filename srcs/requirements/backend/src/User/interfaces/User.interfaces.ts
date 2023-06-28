@@ -1,18 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   create_todo.dto.ts                                 :+:      :+:    :+:   */
+/*   user.interfaces.ts                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aptive <aptive@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/28 17:42:58 by aptive            #+#    #+#             */
-/*   Updated: 2023/06/28 17:46:07 by aptive           ###   ########.fr       */
+/*   Created: 2023/06/28 17:17:21 by aptive            #+#    #+#             */
+/*   Updated: 2023/06/28 19:37:42 by aptive           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-export class CreateTotosDto {
-	readonly id : number;
-	readonly title : string;
-	readonly done : boolean;
-	readonly description? : string;
+export interface User {
+	id : Number;
+	email : string;
+	name? : string;
 }
