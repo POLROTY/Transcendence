@@ -9,6 +9,7 @@ Mettre a jour npm et yarn avec
 COMMANDE POSTGRES --------------------------------------------------------------------
 connexion a postgre dans le container :
 psql -U [User]
+psql mydatabase -U myuser
 
 lister les bases de données :
 \l
@@ -25,4 +26,26 @@ QUITTER :
 Pour voir les utilisateurs créés:
 \du
 
+COMMANDE NEST --------------------------------------------------------------------
+Generer un nouveau module
+$ nest generate module [NAME_MODULE]
+
+Generer un nouveau controler
+$  nest g co [NAME_CONTROLLER]
+
+Generer un nouveau Service
+nest g s [NAME_SERVICE]
+
+
+
+commaned curl ----------------------------------------
+
+// Curl Post
+curl -X POST -H "Content-Type: application/json" -d '{"id": "4", "title": "Nouveau todo", "description": "Description du todo", "done" : "false" }' http://localhost:3000/todos
+
+// Curl patch/update
+curl -X PATCH -H "Content-Type: application/json" -d '{"title": "Todo mis à jour", "description": "Nouvelle description"}' http://localhost:3000/todos/{todoId}
+
+//curl delete
+curl -X DELETE -H  -d http://localhost:3000/todos/4
 
