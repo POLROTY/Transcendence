@@ -12,7 +12,7 @@
 
 import { Controller, Get, Post, Body, Param, Patch, Delete } from '@nestjs/common';
 import { UserService } from './User.service';
-import { User } from './interfaces/User.interfaces'
+// import { User } from './interfaces/User.interfaces'
 import { CreateUserDto } from './dto/create_User.dto';
 
 
@@ -22,31 +22,32 @@ import { CreateUserDto } from './dto/create_User.dto';
 export class UserController {
 	constructor(private readonly UserServices: UserService) {}
 
-	// @Get(':id')
-	// findOne(@Param('id') id : string) {
-	// 	console.log('id', id);
-	// 	return this.UserServices.findOne(id);
-	// }
+	@Get(':id')
+	findByID(@Param('id') id : string) {
+		console.log('id', id);
+		return this.UserServices.findById(Number(id));
+	}
 
 	@Get()
 	findALL() {
 		return this.UserServices.findALL();
 	}
 
-	// @Post()
-	// createTodo(@Body() newTodo: CreateTotosDto ) {
-	// 	console.log('newTodo', newTodo);
-	// 	this.UserServices.create(newTodo);
-	// }
+	@Post()
+	createTodo(@Body() newUser: CreateUserDto ) {
+		console.log('newUser', newUser);
+		this.UserServices.create(newUser);
+	}
 
-	// @Patch(':id')
-	// updateTodo(@Param('id') id : string, @Body() todo: CreateTotosDto) {
-	// 	this.UserServices.update(id, todo);
-	// }
+	@Patch(':id')
+	updateUser(@Param('id') id : string, @Body() CreateUserDTO: CreateUserDto) {
+		console.log('updateUser', CreateUserDTO);
+		this.UserServices.updateUser(Number(id), CreateUserDTO);
+	}
 
-	// @Delete(':id')
-	// deleteTodo(@Param('id') id : string ) {
-	// 	return this.UserServices.delete(id);
-	// }
+	@Delete(':id')
+	deleteTodo(@Param('id') id : string ) {
+		return this.UserServices.delete(Number(id));
+	}
 
 }

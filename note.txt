@@ -40,12 +40,18 @@ nest g s [NAME_SERVICE]
 
 commaned curl ----------------------------------------
 
-// Curl Post
-curl -X POST -H "Content-Type: application/json" -d '{"id": "4", "title": "Nouveau todo", "description": "Description du todo", "done" : "false" }' http://localhost:3000/todos
+//CurlFindAll-----------------------------------------------------------------------------------------------------------------------------------
+curl http://localhost:3000/User
 
-// Curl patch/update
-curl -X PATCH -H "Content-Type: application/json" -d '{"title": "Todo mis à jour", "description": "Nouvelle description"}' http://localhost:3000/todos/{todoId}
+//CurlFindById ---------------------------------------------------------------------------------------------------------------------------------
+curl http://localhost:3000/User/{userId}
 
-//curl delete
-curl -X DELETE -H  -d http://localhost:3000/todos/4
+// Curl Post -----------------------------------------------------------------------------------------------------------------------------------
+curl -X POST -H "Content-Type: application/json" -d '{"email": "test@gmail.com", "name": "aptive"  }' http://localhost:3000/User
+
+// Curl patch/update ---------------------------------------------------------------------------------------------------------------------------
+curl -X PATCH -H "Content-Type: application/json" -d '{"email": "test@gmail.com", "name": "aptive1515"  }' http://localhost:3000/User/{userId}
+
+//curl delete ----------------------------------------------------------------------------------------------------------------------------------
+curl -X DELETE -H  -d http://localhost:3000/User/4
 
