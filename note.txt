@@ -66,6 +66,9 @@ $  nest g co [NAME_CONTROLLER]
 Generer un nouveau Service
 nest g s [NAME_SERVICE]
 
+Generer un nouveau resource
+$ nest generate resource [name of ressource]
+
 
 + ---------------------------------------------------------------------------------------------------------------------------------------------+
 +                                                                   COMMANDE CURL                                                              +
