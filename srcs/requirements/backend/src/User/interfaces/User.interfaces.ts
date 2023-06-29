@@ -1,17 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   user.interfaces.ts                                 :+:      :+:    :+:   */
+/*   User.interfaces.ts                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aptive <aptive@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/28 17:17:21 by aptive            #+#    #+#             */
-/*   Updated: 2023/06/28 19:37:42 by aptive           ###   ########.fr       */
+/*   Updated: 2023/06/29 03:45:06 by aptive           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 export interface User {
-	id : Number;
+	id : number;
 	email : string;
 	name? : string;
+	password : string;
 }
