@@ -12,7 +12,7 @@ Mettre a jour npm et yarn avec
 2. une fois les dockers lancer verfier avec | docker logs backend | si l'initialisation de la DB est ok
 	2.a. si Ok continuer
 	1.b. si non aller dans le docker postgres avec | make execDB |, faire cat | etc/hosts| et recupere la derniere adresse IP et la coller dans
-		.env dans POSTGRES_HOST
+		le d.env dans POSTGRES_HOST
 
 3. relancer le make all
 
