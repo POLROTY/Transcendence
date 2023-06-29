@@ -4,3 +4,9 @@ header {
 	/* border: solid 1px; */
 	padding: 30px;
 }
+
+.profile {
+	cursor: pointer;
+	background-color: blue;
+	padding: 10px;
+}

@@ -1,9 +1,10 @@
+<app-header></app-header>
 <div class="menu">
 	<h1  >PONG</h1>
 	<div class="button">
-		<app-button id="but" text="PLAY" color="{{ isLogged ? '#FFDE56' : '#7E7E7E' }}" ></app-button>
-		<app-button id="but" text="FRIENDS" color="{{ isLogged ? '#FFDE56' : '#7E7E7E' }}" ></app-button>
-		<app-button id="but" text="SETTINGS" color="{{ '#FFDE56' }}" ></app-button>
+		<app-button routerLink="/play" text="PLAY" color="{{ isLogged ? '#FFDE56' : '#7E7E7E' }}" ></app-button>
+		<app-button routerLink="/friends" text="FRIENDS" color="{{ isLogged ? '#FFDE56' : '#7E7E7E' }}" ></app-button>
+		<app-button routerLink="/settings" text="SETTINGS" color="{{ '#FFDE56' }}" ></app-button>
 	</div>
 </div>
 	

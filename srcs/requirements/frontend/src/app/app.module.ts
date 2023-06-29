@@ -9,6 +9,10 @@ import { SettingsComponent } from './components/settings/settings.component';
 import { PlayComponent } from './components/play/play.component';
 import { ButtonComponent } from './components/button/button.component';
 import { HeaderComponent } from './components/header/header.component';
+import { PageNotfoundComponent } from './components/page-notfound/page-notfound.component';
+import { LoginPageComponent } from './components/login-page/login-page.component';
+import { ProfileComponent } from './components/profile/profile.component';
+import { ButtonProfileComponent } from './components/button-profile/button-profile.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +22,11 @@ import { HeaderComponent } from './components/header/header.component';
     SettingsComponent,
     PlayComponent,
     ButtonComponent,
-    HeaderComponent
+    HeaderComponent,
+    PageNotfoundComponent,
+    LoginPageComponent,
+    ProfileComponent,
+    ButtonProfileComponent
   ],
   imports: [
     BrowserModule,

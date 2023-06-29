@@ -1,3 +1,8 @@
 <header>
-	<p>header works!</p>
+	<ng-template #FriendsTemplate>
+		<ng-container *ngIf="isFriend("/friends")">
+			<h3>Friends</h3>
+		</ng-container>
+	</ng-template>
+	<app-button-profile  ></app-button-profile>
 </header>

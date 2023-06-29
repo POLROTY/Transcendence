@@ -1,0 +1,11 @@
+
+<ng-container *ngIf="isLoggedIn">
+	<div class="profile" (click)="goProfile()">
+		<h3>Username</h3>
+		<img src="">
+		<p>Id</p>
+	</div>
+</ng-container>
+<ng-container *ngIf="!isLoggedIn">
+	<p>Login</p>
+</ng-container>
