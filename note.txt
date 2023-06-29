@@ -24,7 +24,7 @@ Mettre a jour npm et yarn avec
 Pour info :
 	- Pour se connexter a l'adminer : localhost:8080 avec les infos du .env
 	- Pour tester les requests :	- utilisation de curl en ligne de commaned
-									- utilisation de swagger sur localhost:3000/aptive
+									- utilisation de swagger sur localhost:3000/api
 									- utlisation de l'extention vscode ThunderClient (obligatoire pour la requete du token /User/me)
 
 
@@ -35,7 +35,6 @@ Ps: le probleme de la connexion est du a une adresse ip variable au lancement de
 +                                                                   COMMANDE POSTGRES                                                          +
 + ---------------------------------------------------------------------------------------------------------------------------------------------+
 connexion a postgre dans le container :
-psql -U [User]
 psql mydatabase -U myuser
 
 lister les bases de données :
