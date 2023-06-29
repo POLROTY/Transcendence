@@ -76,7 +76,7 @@ export class UserController {
 	@Delete('/me')
 	deleteMyAccount(@CurrentUser() user : any ) {
 		console.log(user);
-		return this.UserServices.deleteMyAccount(user);
+		return this.UserServices.deleteMyAccout(user);
 	}
 
 }
