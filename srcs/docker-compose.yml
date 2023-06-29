@@ -35,8 +35,19 @@ services:
   postgresql:
     image: postgres:latest
     container_name: postgredb
+    ports:
+      - 5432:5432
     volumes:
       - db-data:/var/lib/postgresql/data
+    networks:
+      - inception
+    env_file: .env
+
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 8080:8080
     networks:
       - inception
     env_file: .env
@@ -58,3 +69,6 @@ volumes:
 networks:
   inception:
     driver: bridge
+    ipam:
+      config:
+        - subnet: 172.16.238.0/24
