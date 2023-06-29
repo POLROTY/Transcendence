@@ -6,7 +6,7 @@
 #    By: aptive <aptive@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/06/05 15:17:59 by aptive            #+#    #+#              #
-#    Updated: 2023/06/28 16:06:33 by aptive           ###   ########.fr        #
+#    Updated: 2023/06/09 02:29:33 by aptive           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,8 +30,6 @@ fclean: clean
 	docker image prune -f -a
 	@docker rmi -f srcs-front srcs-nest postgres
 
-cleanBack : clean
-	@docker 
 
 execDB:
 	@docker exec -ti postgredb /bin/sh

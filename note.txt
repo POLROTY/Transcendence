@@ -3,39 +3,12 @@ Mettre a jour npm et yarn avec
 	- sudo npm install -g yarn@latest
 
 
-+ ---------------------------------------------------------------------------------------------------------------------------------------------+
-+                                                                     LAUNCH DOCKER                                                            +
-+ ---------------------------------------------------------------------------------------------------------------------------------------------+
-
-1. make all
-
-2. une fois les dockers lancer verfier avec | docker logs backend | si l'initialisation de la DB est ok
-	2.a. si Ok continuer
-	1.b. si non aller dans le docker postgres avec | make execDB |, faire cat | etc/hosts| et recupere la derniere adresse IP et la coller dans
-		.env dans POSTGRES_HOST
-
-3. relancer le make all
-
-4. verifier les logs si connexion base de donne ok etape 5, sinon  ouvrir le docker backend avec | make execbackend | puis lancer |
-	npx prisma db push && npx prisma generate && npx prisma db seed |. operation valable si vous voulez regenerer une nouvelle DB
-
-5. ouvrir le docker backend et lancer nest avec : npm run start:dev, le server se lance sans probleme
-
-Pour info :
-	- Pour se connexter a l'adminer : localhost:8080 avec les infos du .env
-	- Pour tester les requests :	- utilisation de curl en ligne de commaned
-									- utilisation de swagger sur localhost:3000/api
-									- utlisation de l'extention vscode ThunderClient (obligatoire pour la requete du token /User/me)
 
 
-Ps: le probleme de la connexion est du a une adresse ip variable au lancement de docker ( A CORRIGER)
 
-
-+ ---------------------------------------------------------------------------------------------------------------------------------------------+
-+                                                                   COMMANDE POSTGRES                                                          +
-+ ---------------------------------------------------------------------------------------------------------------------------------------------+
+COMMANDE POSTGRES --------------------------------------------------------------------
 connexion a postgre dans le container :
-psql mydatabase -U myuser
+psql -U [User]
 
 lister les bases de données :
 \l
@@ -52,41 +25,4 @@ QUITTER :
 Pour voir les utilisateurs créés:
 \du
 
-
-+ ---------------------------------------------------------------------------------------------------------------------------------------------+
-+                                                                   COMMANDE NEST                                                              +
-+ ---------------------------------------------------------------------------------------------------------------------------------------------+
-
-Generer un nouveau module
-$ nest generate module [NAME_MODULE]
-
-Generer un nouveau controler
-$  nest g co [NAME_CONTROLLER]
-
-Generer un nouveau Service
-nest g s [NAME_SERVICE]
-
-Generer un nouveau resource
-$ nest generate resource [name of ressource]
-
-
-+ ---------------------------------------------------------------------------------------------------------------------------------------------+
-+                                                                   COMMANDE CURL                                                              +
-+ ---------------------------------------------------------------------------------------------------------------------------------------------+
-
-
-//CurlFindAll --------------------------------------------------------
-curl http://localhost:3000/User
-
-//CurlFindById -------------------------------------------------------
-curl http://localhost:3000/User/{userId}
-
-// Curl Post ---------------------------------------------------------
-curl -X POST -H "Content-Type: application/json" -d '{"email": "test@gmail.com", "name": "aptive"  }' http://localhost:3000/User
-
-// Curl patch/update -------------------------------------------------
-curl -X PATCH -H "Content-Type: application/json" -d '{"email": "test@gmail.com", "name": "aptive1515"  }' http://localhost:3000/User/{userId}
-
-//curl delete --------------------------------------------------------
-curl -X DELETE -H  -d http://localhost:3000/User/4
 
