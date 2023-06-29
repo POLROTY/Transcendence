@@ -17,6 +17,7 @@ import { CreateUserDto } from './dto/create_User.dto';
 import { AuthCredentialsDto } from './dto/AuthCredentials.dto';
 import { JwtAuthGuard } from './jwt-auth.guard';
 import { ApiBearerAuth } from '@nestjs/swagger';
+import { CurrentUser } from './current-user.decorator';
 
 
 // localhost:3000/User
@@ -65,8 +66,9 @@ export class UserController {
 	@ApiBearerAuth()
 	@UseGuards(JwtAuthGuard)
 	@Get('/me')
-	getMyProfile(@Request() request: any) {
-		console.log(request.user);
+	getMyProfile(@CurrentUser() user : any ) {
+		console.log(user);
+		return this.UserServices.getMyProfile(user);
 	}
 
 }

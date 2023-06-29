@@ -6,7 +6,7 @@
 /*   By: aptive <aptive@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/28 17:17:15 by aptive            #+#    #+#             */
-/*   Updated: 2023/06/29 04:03:57 by aptive           ###   ########.fr       */
+/*   Updated: 2023/06/29 15:51:47 by aptive           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,10 +35,9 @@ export class UserService {
 	// 	return this.prisma.user.findUnique({ where : { id }});
 	// }
 
-	private creatAuthenticationToken(userId: number, email: string) : string {
+	private creatAuthenticationToken(userId: number) : string {
 		return this.jwtService.sign({
 			userId,
-			email,
 		},
 		{
 			secret: 'my-secret',
@@ -86,7 +85,7 @@ export class UserService {
 			throw new UnauthorizedException('invalid credentials')
 		}
 
-		const token = this.creatAuthenticationToken(user.id, user.email);
+		const token = this.creatAuthenticationToken(user.id);
 
 		return {
 			token,
@@ -135,5 +134,9 @@ export class UserService {
 
 	delete(id: number){
 		return this.prisma.user.delete({where: {id}});
+	}
+
+	getMyProfile(user : any) {
+		return { profile: user};
 	}
 }
