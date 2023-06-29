@@ -71,4 +71,12 @@ export class UserController {
 		return this.UserServices.getMyProfile(user);
 	}
 
+	@ApiBearerAuth()
+	@UseGuards(JwtAuthGuard)
+	@Delete('/me')
+	deleteMyAccount(@CurrentUser() user : any ) {
+		console.log(user);
+		return this.UserServices.deleteMyAccount(user);
+	}
+
 }

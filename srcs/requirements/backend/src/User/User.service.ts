@@ -6,7 +6,7 @@
 /*   By: aptive <aptive@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/28 17:17:15 by aptive            #+#    #+#             */
-/*   Updated: 2023/06/29 15:51:47 by aptive           ###   ########.fr       */
+/*   Updated: 2023/06/29 16:46:34 by aptive           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,18 @@ export class UserService {
 		await this.prisma.user.create({
 			data: createUserDTO,
 		});
+	}
+
+	private async  findById(id : number){
+		const user = await this.prisma.user.findUnique({
+			where: { id },
+		});
+
+		if (!user) {
+			throw new NotFoundException('user with id ${id} not found');
+		}
+
+		return user;
 	}
 
 	private async findByEmail(email: string){
@@ -138,5 +150,13 @@ export class UserService {
 
 	getMyProfile(user : any) {
 		return { profile: user};
+	}
+
+	async deleteMyAccout(user : any){
+		await this.prisma.user.delete({where:{id:user.id}})
+
+		return {
+			message : 'Your account is successfully deleted.',
+		}
 	}
 }
