@@ -1,6 +1,7 @@
 header {
 	display: flex;
-	justify-content: end;
+	flex-direction: row-reverse;
+	justify-content: space-between;
 	/* border: solid 1px; */
 	padding: 30px;
 }
