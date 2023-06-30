@@ -1,21 +1,17 @@
 <header>
-<<<<<<< HEAD
-	<!-- <ng-template #FriendsTemplate>
-		<ng-container *ngIf="isFriend("/friends")">
-			<h3>Friends</h3>
-		</ng-container>
-	</ng-template> -->
-	<app-button-profile  ></app-button-profile>
-=======
-	<ng-container *ngIf="">
+	<ng-container [ngSwitch]="3">
 		<!-- Main Menu -->
-		<ng-template #MainMenu>
-			<app-button-profile  ></app-button-profile>
-		</ng-template>
+		<ng-container *ngSwitchCase="1">
+			<app-button-profile></app-button-profile>
+		</ng-container>
 		<!-- Profile -->
 		<!-- Friends -->
+		<ng-container *ngSwitchCase="3">
+			<h1 id="FriendsHeaderTitle">Friends</h1>
+			<app-button-profile  ></app-button-profile>
+		</ng-container>
+
 		<!-- Settings -->
 		<!--  -->
 	</ng-container>
->>>>>>> 4827cd155978f2ae00ebb6322f8f7c8d938b7fef
 </header>

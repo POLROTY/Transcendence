@@ -1,7 +1,8 @@
 header {
 	display: flex;
-	flex-direction: row-reverse;
+	flex-direction:row;
 	justify-content: space-between;
+	justify-items: end;
 	/* border: solid 1px; */
 	padding: 30px;
 }
@@ -10,4 +11,8 @@ header {
 	cursor: pointer;
 	background-color: blue;
 	padding: 10px;
+}
+
+#FriendsHeaderTitle {
+	font-size: 300%;
 }
