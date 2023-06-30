@@ -8,9 +8,7 @@ import { Router } from '@angular/router';
 })
 export class HeaderComponent {
 
-  constructor(private router: Router) {
-
-  }
+  constructor(private router: Router) {}
 
   isFriend(route: string): boolean {
     return (this.router.url === route);
